@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //oppretter filreferanse og tom liste
+        //oppretter filreferanse og tomt tre.
         File file = new File("src/no/martr/sample.txt");
-        ArrayList<String> words = new ArrayList<String>();
+        BinarySearchTree BST = new BinarySearchTree();
 
         //oppretter scanner med fil som input
         Scanner input = null;
@@ -21,15 +21,9 @@ public class Main {
         //bruker delimiter til å splitte opp i enkeltord
         input.useDelimiter("\\W+");
 
-        //hvert ord legges til i listen
+        //hvert ord legges til i treet
         while (input.hasNext()) {
-            words.add(input.next().toUpperCase());
-        }
-
-        //oppretter binært søketre og fyller det med ordene
-        BinarySearchTree BST = new BinarySearchTree();
-        for (String word: words) {
-            BST.insert(word);
+            BST.insert(input.next().toUpperCase());
         }
 
         //traverserer inorder for å skrive ut alfabetisk
